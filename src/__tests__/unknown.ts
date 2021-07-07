@@ -7,7 +7,7 @@ describe('test `Joi.unknown()`', () => {
     const schema = Joi.object({
       name: Joi.string()
     })
-      .label('TestSchema')
+      .meta({ className: 'TestSchema' })
       .description('a test schema definition')
       .unknown(true);
 
@@ -21,7 +21,7 @@ export interface TestSchema {
   /**
    * Unknown Property
    */
-  [x: string]: any;
+  [x: string]: unknown;
 }`);
   });
 
@@ -29,7 +29,7 @@ export interface TestSchema {
     const schema2 = Joi.object({
       name: Joi.string()
     })
-      .label('TestSchema')
+      .meta({ className: 'TestSchema' })
       .description('a test schema definition')
       .unknown(false);
 
